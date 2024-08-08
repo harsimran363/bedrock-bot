@@ -1,0 +1,25 @@
+name: Deploy Minecraft Bedrock Bot
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'  # Use the version that suits your project
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run bot
+      run: npm start
